@@ -16,6 +16,14 @@ public class Interval {
         this.ukljucena_prva=false;
         this.ukljucena_druga=false;
     }
+    public String dajZnakZaPrvu(){
+        if(ukljucena_prva == true)  return "[";
+        else return "(";
+    }
+    public String dajZnakZaDrugu(){
+        if(ukljucena_druga == true) return "]";
+        else return ")";
+    }
     public boolean isNull(){
         if(this.pocetna == 0 && this.krajnja == 0)
             return true;
@@ -65,5 +73,10 @@ public class Interval {
             vrati.ukljucena_druga = i2.ukljucena_druga;
         }
         return vrati;
+    }
+    public String toString(){
+        String s = new String();
+        s=s+dajZnakZaPrvu()+this.pocetna+","+this.krajnja+dajZnakZaDrugu();
+        return s;
     }
 }
